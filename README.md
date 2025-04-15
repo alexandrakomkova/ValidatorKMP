@@ -1,7 +1,7 @@
 # ValidatorKMP
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.alexandrakomkova/validator-kmp/badge.svg)](https://central.sonatype.com/artifact/io.github.alexandrakomkova/validator-kmp)
 
-**ValidatorKMP** is a Kotlin Multiplatform library for straightforward data validation. It provides a `Validator` interface and several ready-to-use implementations for common scenarios such as email and password validation.
+**Validator KMP** is a Kotlin Multiplatform library for straightforward data validation. It provides a `Validator` interface and several ready-to-use implementations for common scenarios such as email and password validation.
 
 ## Features
 
@@ -24,7 +24,7 @@ Sync your Gradle project.
 ### Built-in Validators
 The library provides the following built-in validators.
 
-**EmailValidator**
+**EmailValidator** is a validator for checking email addresses.
 ```kotlin
 import com.alexandrakomkova.validator.EmailValidator
 import com.alexandrakomkova.validator.ValidationResult
@@ -36,7 +36,7 @@ println(result1) // ValidationResult(isValid=true, errorMessage=null)
 val result2 = validator.validate("testexample.com")
 println(result2) // ValidationResult(isValid=false, errorMessage=Email must contain one '@' symbol.)
 ```
-**PasswordValidator**
+**PasswordValidator** is a validator for checking passwords.
 ```kotlin
 import com.alexandrakomkova.validator.PasswordValidator
 import com.alexandrakomkova.validator.ValidationResult
@@ -48,6 +48,13 @@ println(result1) // ValidationResult(isValid=true, errorMessage=null)
 val result2 = validator1.validate("")
 println(result2) // ValidationResult(isValid=false, errorMessage=Password must be at least 8 characters long.)
 ```
+## Properties
+### EmailValidator
+| Property  | Type | Description | Default value |
+| ------------- | ------------- | ------------- | ------------- |
+| maxLength  | Int  | The maximum length of the email address.  | 254 |
+
+### PasswordValidator
 
 ## Platforms Supported
 ValidatorKMP currently supports the following platforms:
