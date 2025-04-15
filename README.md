@@ -55,6 +55,13 @@ println(result2) // ValidationResult(isValid=false, errorMessage=Password must b
 | maxLength  | Int  | The maximum length of the email address.  | 254 |
 
 ### PasswordValidator
+| Property  | Type | Description | Default value |
+| ------------- | ------------- | ------------- | ------------- |
+| minLength  | Int  | The minimum length of the password.  | 8 |
+| maxLength  | Int  | The maximum length of the password.  | 16 |
+| shouldContainUpperCase  | Boolean  | Whether at least one uppercase letter is required.  | true |
+| shouldContainDigits  | Boolean  | Whether at least one digit is required.  | true |
+| shouldContainSpecialSymbols  | Boolean  | Whether at least one special symbol (from the set !@#$%^&*(),.?":{}\|<>) is required.  | true |
 
 ## Platforms Supported
 ValidatorKMP currently supports the following platforms:
