@@ -48,6 +48,24 @@ println(result1) // ValidationResult(isValid=true, errorMessage=null)
 val result2 = validator1.validate("")
 println(result2) // ValidationResult(isValid=false, errorMessage=Password must be at least 8 characters long.)
 ```
+### Custom Validators
+You can change the validator parameters. 
+```kotlin
+import com.alexandrakomkova.validator.PasswordValidator
+import com.alexandrakomkova.validator.ValidationResult
+
+val validator = PasswordValidator(
+        minLength = 3,
+        maxLength = 10,
+        shouldContainDigits = false,
+        shouldContainUpperCase = false,
+        shouldContainSpecialSymbols = false
+    )
+val result1 = validator.validate("abc")
+println(result1) // ValidationResult(isValid=true, errorMessage=null)
+
+```
+
 ## Properties
 ### EmailValidator
 | Property  | Type | Description | Default value |
