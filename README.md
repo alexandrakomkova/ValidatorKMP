@@ -15,7 +15,7 @@ To use ValidatorKMP in your Kotlin Multiplatform project, add the dependency to 
 
 ```kotlin
 dependencies {
-    implementation("io.github.alexandrakomkova:validator-kmp:1.0.0")
+    implementation("io.github.alexandrakomkova:validator-kmp:1.0.1")
 }
 ```
 Sync your Gradle project.
@@ -80,6 +80,9 @@ println(result1) // ValidationResult(isValid=true, errorMessage=null)
 | shouldContainUpperCase  | Boolean  | Whether at least one uppercase letter is required.  | true |
 | shouldContainDigits  | Boolean  | Whether at least one digit is required.  | true |
 | shouldContainSpecialSymbols  | Boolean  | Whether at least one special symbol (from the set !@#$%^&*(),.?":{}\|<>) is required.  | true |
+
+## Demo
+<img src='https://github.com/alexandrakomkova/ValidatorKMP/blob/main/Screenshot_20250416_112702.png' width='250'> <img src='https://github.com/alexandrakomkova/ValidatorKMP/blob/main/Screenshot_20250416_112730.png' width='250'> <img src='https://github.com/alexandrakomkova/ValidatorKMP/blob/main/Screenshot_20250416_121624.png' width='250'>
 
 ## Platforms Supported
 ValidatorKMP currently supports the following platforms:
