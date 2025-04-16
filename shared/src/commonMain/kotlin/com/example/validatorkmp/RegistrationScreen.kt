@@ -20,8 +20,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import com.example.apple_library.EmailValidator
-import com.example.apple_library.PasswordValidator
+import com.alexandrakomkova.validatorKmp.EmailValidator
+import com.alexandrakomkova.validatorKmp.PasswordValidator
 
 @Composable
 fun RegistrationScreen() {
@@ -42,7 +42,9 @@ fun RegistrationScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("ValidatorKMP Preview", style = MaterialTheme.typography.headlineLarge, modifier = Modifier.padding(bottom = 16.dp))
+        Text("ValidatorKMP Preview",
+            style = MaterialTheme.typography.headlineLarge,
+            modifier = Modifier.padding(bottom = 16.dp))
 
 
         OutlinedTextField(
@@ -50,15 +52,14 @@ fun RegistrationScreen() {
             onValueChange = {
                 email = it
                 emailError = null
-                registrationSuccess = false
             },
             label = { Text("Email") },
             isError = emailError != null,
             modifier = Modifier.fillMaxWidth(),
             singleLine = true
         )
-        if (emailError != null) {
-            Text(emailError!!, color = MaterialTheme.colorScheme.error)
+        emailError?.let {
+            Text(it, color = MaterialTheme.colorScheme.error)
         }
         Spacer(modifier = Modifier.height(8.dp))
 
@@ -68,31 +69,30 @@ fun RegistrationScreen() {
             onValueChange = {
                 password = it
                 passwordError = null
-                registrationSuccess = false
             },
             label = { Text("Password") },
             isError = passwordError != null,
             modifier = Modifier.fillMaxWidth(),
             singleLine = true,
-            visualTransformation = PasswordVisualTransformation()
+            visualTransformation = PasswordVisualTransformation(),
         )
-        if (passwordError != null) {
-            Text(passwordError!!, color = MaterialTheme.colorScheme.error)
-        }
-        Spacer(modifier = Modifier.height(16.dp))
 
+        passwordError?.let {
+            Text(it, color = MaterialTheme.colorScheme.error)
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
 
         Button(onClick = {
-            emailError = emailValidator.validate(email).errorMessage.toString()
-            passwordError = passwordValidator.validate(password).errorMessage.toString()
+            emailError = emailValidator.validate(email).errorMessage.takeIf { it != null }
+            passwordError = passwordValidator.validate(password).errorMessage.takeIf { it != null }
             registrationSuccess = emailError == null && passwordError == null
-        }) {
+        }
+        ) {
             Text("Validate")
         }
 
-
         Spacer(modifier = Modifier.height(8.dp))
-
 
         if (registrationSuccess) {
             Text("Successful validation!", color = MaterialTheme.colorScheme.primary)

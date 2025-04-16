@@ -27,7 +27,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation("io.github.alexandrakomkova:validator-kmp:1.0.0")
+            implementation("io.github.alexandrakomkova:validator-kmp:1.0.1")
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
